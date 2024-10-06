@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 import 'package:pica_comic/network/nhentai_network/nhentai_main_network.dart';
 import 'package:pica_comic/tools/translations.dart';
-import '../../base.dart';
+// import '../../base.dart';
 import '../../foundation/image_manager.dart';
 import '../../tools/io_tools.dart';
 import '../download_model.dart';

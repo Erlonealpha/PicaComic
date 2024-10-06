@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:flutter/foundation.dart';
-import 'package:pica_comic/base.dart';
+// import 'dart:convert';
+// import 'package:flutter/foundation.dart';
+// import 'package:pica_comic/base.dart';
 import 'package:pica_comic/network/download.dart';
 import 'package:pica_comic/foundation/image_manager.dart';
 import 'jm_image.dart';

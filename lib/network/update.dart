@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
 import 'package:pica_comic/base.dart';
 import 'package:pica_comic/network/app_dio.dart';
 
@@ -61,10 +61,10 @@ bool compareSemVer(String ver1, String ver2) {
 }
 
 Future<String?> getUpdatesInfo() async {
-  if(_updateInfo == null)  return null;
+  if (_updateInfo == null) return null;
   _updateInfo!.replaceAll('\r\n', '\n');
   var lines = _updateInfo!.split("\n");
-  if(lines.length > 5) {
+  if (lines.length > 5) {
     lines.add("...");
     return lines.sublist(5).join("\n");
   }

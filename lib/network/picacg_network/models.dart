@@ -1,4 +1,4 @@
-import "package:pica_comic/base.dart";
+// import "package:pica_comic/base.dart";
 import "package:pica_comic/foundation/history.dart";
 import "package:pica_comic/network/base_comic.dart";
 
@@ -14,32 +14,33 @@ class Profile {
   bool? isPunched;
   String? slogan;
 
-  Profile(this.id, this.avatarUrl, this.email, this.exp, this.level, this.name, this.title, this.isPunched, this.slogan, this.frameUrl);
+  Profile(this.id, this.avatarUrl, this.email, this.exp, this.level, this.name,
+      this.title, this.isPunched, this.slogan, this.frameUrl);
 
-  Map<String,dynamic> toJson()=>{
-    "id": id,
-    "title": title,
-    "email": email,
-    "name": name,
-    "level": level,
-    "exp": exp,
-    "avatarUrl": avatarUrl,
-    "frameUrl": frameUrl,
-    "isPunched": isPunched,
-    "slogan": slogan
-  };
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "title": title,
+        "email": email,
+        "name": name,
+        "level": level,
+        "exp": exp,
+        "avatarUrl": avatarUrl,
+        "frameUrl": frameUrl,
+        "isPunched": isPunched,
+        "slogan": slogan
+      };
 
-  Profile.fromJson(Map<String,dynamic> json):
-    id = json["id"],
-    title = json["title"],
-    email = json["email"],
-    name = json["name"],
-    level = json["level"],
-    exp = json["exp"],
-    avatarUrl = json["avatarUrl"],
-    frameUrl = json["frameUrl"],
-    isPunched = json["isPunched"],
-    slogan = json["slogan"];
+  Profile.fromJson(Map<String, dynamic> json)
+      : id = json["id"],
+        title = json["title"],
+        email = json["email"],
+        name = json["name"],
+        level = json["level"],
+        exp = json["exp"],
+        avatarUrl = json["avatarUrl"],
+        frameUrl = json["frameUrl"],
+        isPunched = json["isPunched"],
+        slogan = json["slogan"];
 }
 
 class CategoryItem {
@@ -55,7 +56,7 @@ class InitData {
   InitData(this.imageServer, this.fileServer);
 }
 
-class ComicItemBrief extends BaseComic{
+class ComicItemBrief extends BaseComic {
   @override
   String title;
   String author;
@@ -67,7 +68,9 @@ class ComicItemBrief extends BaseComic{
   List<String> tags;
   int? pages;
 
-  ComicItemBrief(this.title, this.author, this.likes, this.path, this.id, this.tags, {this.pages});
+  ComicItemBrief(
+      this.title, this.author, this.likes, this.path, this.id, this.tags,
+      {this.pages});
 
   @override
   String get cover => path;
@@ -79,7 +82,7 @@ class ComicItemBrief extends BaseComic{
   String get subTitle => author;
 }
 
-class ComicItem with HistoryMixin{
+class ComicItem with HistoryMixin {
   String id;
   Profile creator;
   @override
@@ -117,50 +120,49 @@ class ComicItem with HistoryMixin{
       this.pagesCount,
       this.time,
       this.eps,
-      this.recommendation
-      );
-  ComicItemBrief toBrief(){
+      this.recommendation);
+  ComicItemBrief toBrief() {
     return ComicItemBrief(title, author, likes, thumbUrl, id, []);
   }
 
-  Map<String,dynamic> toJson()=>{
-    "creator": creator.toJson(),
-    "id": id,
-    "title": title,
-    "description": description,
-    "thumbUrl": thumbUrl,
-    "author": author,
-    "chineseTeam": chineseTeam,
-    "categories": categories,
-    "tags": tags,
-    "likes": likes,
-    "comments": comments,
-    "isLiked": isLiked,
-    "isFavourite": isFavourite,
-    "epsCount": epsCount,
-    "time": time,
-    "pagesCount": pagesCount
-  };
+  Map<String, dynamic> toJson() => {
+        "creator": creator.toJson(),
+        "id": id,
+        "title": title,
+        "description": description,
+        "thumbUrl": thumbUrl,
+        "author": author,
+        "chineseTeam": chineseTeam,
+        "categories": categories,
+        "tags": tags,
+        "likes": likes,
+        "comments": comments,
+        "isLiked": isLiked,
+        "isFavourite": isFavourite,
+        "epsCount": epsCount,
+        "time": time,
+        "pagesCount": pagesCount
+      };
 
-  ComicItem.fromJson(Map<String,dynamic> json):
-    creator = Profile.fromJson(json["creator"]),
-    id = json["id"],
-    title = json["title"],
-    description = json["description"],
-    thumbUrl = json["thumbUrl"],
-    author = json["author"],
-    chineseTeam = json["chineseTeam"],
-    categories = json["categories"].cast<String>(),
-    tags = json["tags"].cast<String>(),
-    likes = json["likes"],
-    comments = json["comments"],
-    isLiked = json["isLiked"],
-    isFavourite = json["isFavourite"],
-    epsCount = json["epsCount"],
-    time = json["time"],
-    pagesCount = json["pagesCount"],
-    eps = [],
-    recommendation = [];
+  ComicItem.fromJson(Map<String, dynamic> json)
+      : creator = Profile.fromJson(json["creator"]),
+        id = json["id"],
+        title = json["title"],
+        description = json["description"],
+        thumbUrl = json["thumbUrl"],
+        author = json["author"],
+        chineseTeam = json["chineseTeam"],
+        categories = json["categories"].cast<String>(),
+        tags = json["tags"].cast<String>(),
+        likes = json["likes"],
+        comments = json["comments"],
+        isLiked = json["isLiked"],
+        isFavourite = json["isFavourite"],
+        epsCount = json["epsCount"],
+        time = json["time"],
+        pagesCount = json["pagesCount"],
+        eps = [],
+        recommendation = [];
 
   @override
   String get cover => thumbUrl;
@@ -190,7 +192,7 @@ class Comment {
   String time;
 
   @override
-  String toString()=>"$name:$text";
+  String toString() => "$name:$text";
 
   Comment(
       this.name,
@@ -204,8 +206,7 @@ class Comment {
       this.likes,
       this.frame,
       this.slogan,
-      this.time
-      );
+      this.time);
 }
 
 class Comments {
@@ -225,40 +226,40 @@ class Favorites {
   Favorites(this.comics, this.pages, this.loaded);
 }
 
-class SearchResult{
+class SearchResult {
   String keyWord;
   String sort;
   int pages;
   int loaded;
   List<ComicItemBrief> comics;
-  SearchResult(this.keyWord,this.sort,this.comics,this.pages,this.loaded);
+  SearchResult(this.keyWord, this.sort, this.comics, this.pages, this.loaded);
 }
 
-class Reply{
+class Reply {
   String id;
   int loaded;
   int total;
   List<Comment> comments;
-  Reply(this.id,this.loaded,this.total,this.comments);
+  Reply(this.id, this.loaded, this.total, this.comments);
 }
 
-class GameItemBrief{
+class GameItemBrief {
   String id;
   String iconUrl;
   String name;
   String publisher;
   bool adult;
-  GameItemBrief(this.id,this.name,this.adult,this.iconUrl,this.publisher);
+  GameItemBrief(this.id, this.name, this.adult, this.iconUrl, this.publisher);
 }
 
-class Games{
+class Games {
   List<GameItemBrief> games;
   int total;
   int loaded;
-  Games(this.games,this.loaded,this.total);
+  Games(this.games, this.loaded, this.total);
 }
 
-class GameInfo{
+class GameInfo {
   String id;
   String name;
   String description;
@@ -269,5 +270,6 @@ class GameInfo{
   bool isLiked;
   int likes;
   int comments;
-  GameInfo(this.id,this.name,this.description,this.icon,this.publisher,this.screenshots,this.link,this.isLiked,this.likes,this.comments);
+  GameInfo(this.id, this.name, this.description, this.icon, this.publisher,
+      this.screenshots, this.link, this.isLiked, this.likes, this.comments);
 }

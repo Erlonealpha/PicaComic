@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:typed_data';
+// import 'dart:typed_data';
 import 'package:pica_comic/network/download_model.dart';
 import 'package:pica_comic/foundation/image_manager.dart';
 import '../../base.dart';
