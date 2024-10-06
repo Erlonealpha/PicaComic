@@ -194,6 +194,14 @@ final ehentai = ComicSource.named(
             EhNetwork().getGalleries("${EhNetwork().ehBaseUrl}/popular"),
       ),
     ),
+    ExplorePageData.named(
+      title: "Eh订阅",
+      type: ExplorePageType.multiPageComicList,
+      loadPage: _EhentaiGalleriesLoader(
+        firstPageLoader: () =>
+            EhNetwork().getGalleries("${EhNetwork().ehBaseUrl}/watched"),
+      ),
+    ),
   ],
   searchPageData: SearchPageData.named(
     loadPage: (keyword, page, options) {
